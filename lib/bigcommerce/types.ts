@@ -8,7 +8,7 @@ export type Edge<T> = {
   node: T;
 };
 
-export type Cart = Omit<ShopifyCart, 'lines'> & {
+export type Cart = Omit<BigCommerceCart, 'lines'> & {
   lines: CartItem[];
 };
 
@@ -29,7 +29,7 @@ export type CartItem = {
   };
 };
 
-export type Collection = ShopifyCollection & {
+export type Collection = BigCommerceCollection & {
   path: string;
 };
 
@@ -61,7 +61,7 @@ export type Page = {
   updatedAt: string;
 };
 
-export type Product = Omit<ShopifyProduct, 'variants' | 'images'> & {
+export type Product = Omit<BigCommerceProduct, 'variants' | 'images'> & {
   variants: ProductVariant[];
   images: Image[];
 };
@@ -88,7 +88,7 @@ export type SEO = {
   description: string;
 };
 
-export type ShopifyCart = {
+export type BigCommerceCart = {
   id: string;
   checkoutUrl: string;
   cost: {
@@ -100,7 +100,7 @@ export type ShopifyCart = {
   totalQuantity: number;
 };
 
-export type ShopifyCollection = {
+export type BigCommerceCollection = {
   handle: string;
   title: string;
   description: string;
@@ -108,7 +108,7 @@ export type ShopifyCollection = {
   updatedAt: string;
 };
 
-export type ShopifyProduct = {
+export type BigCommerceProduct = {
   id: string;
   handle: string;
   availableForSale: boolean;
@@ -128,23 +128,23 @@ export type ShopifyProduct = {
   updatedAt: string;
 };
 
-export type ShopifyCartOperation = {
+export type BigCommerceCartOperation = {
   data: {
-    cart: ShopifyCart;
+    cart: BigCommerceCart;
   };
   variables: {
     cartId: string;
   };
 };
 
-export type ShopifyCreateCartOperation = {
-  data: { cartCreate: { cart: ShopifyCart } };
+export type BigCommerceCreateCartOperation = {
+  data: { cartCreate: { cart: BigCommerceCart } };
 };
 
-export type ShopifyAddToCartOperation = {
+export type BigCommerceAddToCartOperation = {
   data: {
     cartLinesAdd: {
-      cart: ShopifyCart;
+      cart: BigCommerceCart;
     };
   };
   variables: {
@@ -156,10 +156,10 @@ export type ShopifyAddToCartOperation = {
   };
 };
 
-export type ShopifyRemoveFromCartOperation = {
+export type BigCommerceRemoveFromCartOperation = {
   data: {
     cartLinesRemove: {
-      cart: ShopifyCart;
+      cart: BigCommerceCart;
     };
   };
   variables: {
@@ -168,10 +168,10 @@ export type ShopifyRemoveFromCartOperation = {
   };
 };
 
-export type ShopifyUpdateCartOperation = {
+export type BigCommerceUpdateCartOperation = {
   data: {
     cartLinesUpdate: {
-      cart: ShopifyCart;
+      cart: BigCommerceCart;
     };
   };
   variables: {
@@ -184,19 +184,19 @@ export type ShopifyUpdateCartOperation = {
   };
 };
 
-export type ShopifyCollectionOperation = {
+export type BigCommerceCollectionOperation = {
   data: {
-    collection: ShopifyCollection;
+    collection: BigCommerceCollection;
   };
   variables: {
     handle: string;
   };
 };
 
-export type ShopifyCollectionProductsOperation = {
+export type BigCommerceCollectionProductsOperation = {
   data: {
     collection: {
-      products: Connection<ShopifyProduct>;
+      products: Connection<BigCommerceProduct>;
     };
   };
   variables: {
@@ -204,13 +204,13 @@ export type ShopifyCollectionProductsOperation = {
   };
 };
 
-export type ShopifyCollectionsOperation = {
+export type BigCommerceCollectionsOperation = {
   data: {
-    collections: Connection<ShopifyCollection>;
+    collections: Connection<BigCommerceCollection>;
   };
 };
 
-export type ShopifyMenuOperation = {
+export type BigCommerceMenuOperation = {
   data: {
     menu?: {
       items: {
@@ -224,36 +224,36 @@ export type ShopifyMenuOperation = {
   };
 };
 
-export type ShopifyPageOperation = {
+export type BigCommercePageOperation = {
   data: { pageByHandle: Page };
   variables: { handle: string };
 };
 
-export type ShopifyPagesOperation = {
+export type BigCommercePagesOperation = {
   data: {
     pages: Connection<Page>;
   };
 };
 
-export type ShopifyProductOperation = {
-  data: { product: ShopifyProduct };
+export type BigCommerceProductOperation = {
+  data: { product: BigCommerceProduct };
   variables: {
     handle: string;
   };
 };
 
-export type ShopifyProductRecommendationsOperation = {
+export type BigCommerceProductRecommendationsOperation = {
   data: {
-    productRecommendations: ShopifyProduct[];
+    productRecommendations: BigCommerceProduct[];
   };
   variables: {
     productId: string;
   };
 };
 
-export type ShopifyProductsOperation = {
+export type BigCommerceProductsOperation = {
   data: {
-    products: Connection<ShopifyProduct>;
+    products: Connection<BigCommerceProduct>;
   };
   variables: {
     query?: string;
